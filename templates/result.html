@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Filter Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(45deg, #FF8C00, #00BFFF); /* Vibrant Orange to Blue gradient */
+            color: white;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #result-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.95); /* Slightly more opaque white background */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Increased box shadow */
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #f2f2f2; /* Light gray background for the table */
+            color: black;
+        }
+
+        th, td {
+            padding: 12px; /* Increased padding for better spacing */
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db; /* Dark Blue */
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: whitesmoke; /* Slightly darker gray for even rows */
+            color: black;
+        }
+    </style>                
+</head>
+<body>
+    <div id="result-container">
+        <h1 style="text-align: center; color: #FFA500;">Compiled Data</h1>
+        {{ data | safe }}
+    </div>
+        <p> Accepted Sum: {{ result_dict.Accepted }}</p>
+        <p> Average Handle Time (AHT): {{ result_dict.average_handle_time }}</p>
+        <p> Total Login Time: {{ result_dict.total_active_time }}</p>
+        <p> Total Ready Time: {{ result_dict.total_ready_time }}</p>
+        <p> Total Not Ready Time: {{ result_dict.total_not_ready_time }}</p>
+        <p> Busy Time: {{ result_dict.total_busy_time }}</p>
+        <p> Occupancy : {{result_dict.occupancy }}% </p>
+        <p> Fcr Score : {{result_dict.total_fcr_score }}% </p>
+        <p> Total NPS Score : {{result_dict.total_nps_score }}% </p>
+        <p> Total CSAT Score : {{result_dict.total_csat_score }}% </p>
+        <p> Total Quality Score : {{result_dict.total_quality_score }}% </p>
+    <div>
+
+    </div>
+</body>
+</html>
